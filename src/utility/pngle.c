@@ -28,7 +28,7 @@
 #include <stdint.h>
 #include <math.h>
 
-#include <rom/miniz.h>
+#include <esp32/rom/miniz.h>
 #include "pngle.h"
 
 #ifndef MIN

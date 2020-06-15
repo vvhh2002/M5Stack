@@ -1,5 +1,5 @@
 set(COMPONENT_SRCDIRS "src" "src/utility" "src/Fonts")
-set(COMPONENT_ADD_INCLUDEDIRS "src" "$ENV{IDF_PATH}/components/bt/bluedroid/api/include/api")
+set(COMPONENT_ADD_INCLUDEDIRS "src" "$ENV{IDF_PATH}/components/bt/host/bluedroid/api/include/api")
 list(APPEND COMPONENT_REQUIRES "arduino")
 
 
@@ -7,6 +7,7 @@ register_component()
 
 
 set(DEFINITIONS "ESP32")
+list(APPEND DEFINITIONS "M5STACK_FIRE")
 
 if (CONFIG_M5STACK_BASIC OR CONFIG_M5STACK_GRAY OR CONFIG_M5STACK_FIRE)
     list(APPEND DEFINITIONS "M5STACK")
@@ -16,5 +17,5 @@ if(CONFIG_M5STACK_FIRE)
     list(APPEND DEFINITIONS "M5STACK_FIRE")
 endif(CONFIG_M5STACK_FIRE)
 
-target_compile_definitions(${COMPONENT_NAME} PUBLIC ${DEFINITIONS})
-
+#target_compile_definitions(${COMPONENT_NAME} PUBLIC ${DEFINITIONS})
+target_compile_definitions(${COMPONENT_TARGET} PUBLIC ${DEFINITIONS})
